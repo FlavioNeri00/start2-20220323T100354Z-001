@@ -1,0 +1,122 @@
+/*
+1 creazione del testo e formattazione di 1 parola da far ruotare
+2 inserimento delle altre 2 parole
+3 sovrapporre le 3 parole
+4 mostrare 1 parola e nascondere le altre 2
+5 animare 1 parola (fadein - fadeout con spostamento)
+6 animare le altre 2 parole
+7 ritardare progressivamente l'animazione delle altre 2 parole 
+*/
+
+#testoAlternato {
+  padding-inline: 40px;
+  padding-block: 12px;
+
+  line-height: 40px;
+  margin-inline: 121px;
+  margin-block: 200px;
+  font-size: 25px;
+  overflow: hidden;
+  border: solid 1px gray;
+  width: 37rem;
+}
+
+.parole {
+  color: #6a889c;
+}
+
+span {
+  content: "";
+  /* animation: changeword 10s 2s infinite backwards; */
+  position: relative;
+  overflow: hidden;
+}
+
+i:nth-child(1) {
+  animation-name: changeword;
+  animation-duration: 12s;
+  animation-fill-mode: both;
+  display: inline-block;
+  animation-iteration-count: infinite;
+}
+i:nth-child(2) {
+  animation-name: changeword;
+  animation-duration: 10s;
+  animation-fill-mode: both;
+  animation-delay: 7s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+}
+/* i:nth-child(3) {
+  animation-name: changeword;
+  animation-duration: 14s;
+  animation-fill-mode: both;
+  animation-delay: 10s;
+  animation-iteration-count: infinite;
+  display: inline;
+} */
+
+/* @keyframes changeword {
+  from {
+    opacity: 0.1;
+    content: "interfacce web";
+  }
+  15% {
+    opacity: 1;
+    content: "interfacce web";
+    transform: translate(300%);
+  }
+  30% {
+    opacity: 0.1;
+    content: "interfacce web";
+  }
+  50% {
+    opacity: 0.1;
+    content: "single page app";
+  }
+  65% {
+    opacity: 1;
+    content: "single page app";
+  }
+  85% {
+    opacity: 0.1;
+    content: "single page app";
+  }
+  90% {
+    opacity: 0.1;
+    content: "app native";
+  }
+  to {
+    opacity: 1;
+    content: "app native";
+  }
+} */
+
+@keyframes changeword {
+  from {
+    display: none;
+    transform: translateY(-10px);
+  }
+  25% {
+    opacity: 0.5;
+    display: inline-block;
+    transform: translateY(-5px);
+  }
+  40% {
+    opacity: 1;
+    display: inline-block;
+    transform: translateY(0px);
+  }
+  50% {
+    display: none;
+    transform: translateY(5px);
+  }
+  75% {
+    display: none;
+    transform: translateY(7px);
+  }
+  to {
+    display: none;
+    transform: translateY(10px);
+  }
+}
